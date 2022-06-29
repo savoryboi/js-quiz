@@ -1,0 +1,75 @@
+/* RESETS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: normal;
+    color: white
+}
+
+body, html {
+    height: 100%;
+    background-color: black;
+}
+
+/* GLOBAL CLASSES */
+.column {
+    flex-direction: column;
+}
+
+.center {
+    margin: auto;
+    justify-content: center;
+}
+
+
+/* CUSTOM STYES */
+header {
+    display: flex;
+    justify-content: space-between;
+    margin:15px 2%;
+
+}
+
+header a {
+    text-decoration: none;
+    font-weight: bold;
+    color: rgb(236, 209, 35);
+}
+
+header #timer {
+    justify-self: flex-end;
+}
+
+main.start-page {
+    display: flex;
+    max-width: 800px;
+    margin: auto;
+    margin-top: 13%;
+    padding: 15px;
+}
+
+main.startpage h1,h2 {
+    padding: 25px;
+}
+
+button#start {
+    width: fit-content;
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
+    font-size: 14px;
+    margin: auto;
+    padding: 5px 10px;
+    margin-top: 5%;
+    background: white;
+    color: black;
+    border-radius: 24px;
+    transition: .222s;
+}
+
+#start:hover {
+    background: #9B344E;
+    color: #e9e2e4;
+    box-shadow: 1px 1px 80px 10px #9DC500;
+}
