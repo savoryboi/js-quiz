@@ -63,11 +63,11 @@ ul li {
     font-size: 30px;
     padding: 18px;
     border-bottom: 2px solid yellowgreen;
-    border-radius: 5px;
+    border-radius: 50px;
     transition: .222s;
     
 }
 
 ul li:hover {
-    background: rgba(255, 87, 188, 0.381);
+    background: yellowgreen;
 }

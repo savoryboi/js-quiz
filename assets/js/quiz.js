@@ -64,6 +64,7 @@ function startQuiz(){
         currentChoices = questions[i].choices; 
         changeQuestion.innerText = currentQ;
 
+        // create new li for each value in current indexed questions.choices
         currentChoices.forEach((item)=>{
             let newLi = document.createElement('li');
             newLi.innerText = item;
