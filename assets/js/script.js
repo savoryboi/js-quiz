@@ -1,5 +1,18 @@
 // Pseudo code
-// 
+// timer starts at full count (75sec) until startbutton is clicked
+// once startbutton clicked, text in html elements cycle through questions array
+//          use a for-loop to cycle through each value
+//          assign titles to #title in html
+//          styled ul for choices
+//          when choice clicked IF correct... show 'correct!', nextQ
+//          ELSE reduce timer and show 'wrong!!', nextQ
+//      final Q stops the loop (use i < questions.length in for-loop)
+// score = time (in sec) remaining after completing
+
+// final Q screen w/ log for initals and score... 
+//  how to store and display this data ?
+
+
 
 // store list of questions using objects in an array 
 var questions = [
@@ -30,13 +43,23 @@ var questions = [
     }
 ];
 
-var score = 0;
-var questionIndex = 0;
+// var score = 0;
+// var questionIndex = 0;
 
-var quizTimer = document.getElementById("timer");
+// let seconds = 75;
+
+// var totalTime = document.getElementById("seconds");
 
 
+function startQuiz() {
+    console.log('test');
+    for(questionIndex = 0; questionIndex < questions.length; questionIndex++) {
+        var currentQ = 
+        document.getElementById('title').innerText = questions[i].title;
+    }
+    var questionLabel = document.getElementById('title');
 
+}
 
 
 

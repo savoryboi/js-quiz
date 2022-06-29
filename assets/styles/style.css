@@ -1,13 +1,14 @@
 /* RESETS */
-
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Comfortaa:wght@300&family=Inspiration&family=Play&family=Source+Code+Pro:wght@200;300;400&family=Trispace:wght@100&display=swap');
+ 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Source Code Pro', monospace;
     font-weight: normal;
     color: white
-}
+} 
 
 body, html {
     height: 100%;
@@ -24,6 +25,9 @@ body, html {
     justify-content: center;
 }
 
+.hidden {
+    display: none;
+}
 
 /* CUSTOM STYES */
 header {
@@ -71,5 +75,6 @@ button#start {
 #start:hover {
     background: #9B344E;
     color: #e9e2e4;
-    box-shadow: 1px 1px 80px 10px #9DC500;
+    box-shadow: 1px 1px 80px 12px #d5f438;
+    cursor: pointer;
 }
