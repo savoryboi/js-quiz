@@ -31,15 +31,15 @@ body, html {
 /* CUSTOM STYLES */
 header {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     margin:15px 2%;
 
 }
 
-header a {
+header p {
     text-decoration: none;
     font-weight: bold;
-    color: rgb(236, 209, 35);
+    color: yellowgreen;
 }
 
 header #timer {

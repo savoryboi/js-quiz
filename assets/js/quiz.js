@@ -38,7 +38,7 @@ var questions = [
         answer: 'false'
     },
     {
-        title: 'the following symbols are known as... "&&", "||", "===", "<", etc.', 
+        title: 'the following symbols ($$, ||, ===, <, >) are known as...',
         choices: ['computer operators', 'methods', 'comparative operators', 'computer science'], 
         answer: 'comparative operators'
     }
@@ -55,19 +55,27 @@ var totalTime = document.getElementById("seconds");
 var startButton = document.getElementById("start");
 
 function startQuiz(){
+    var wrapperEl = document.querySelector('.answer-list');
+
 
     for(var i = 0; i < questions.length; i++) {
         var changeQuestion = document.querySelector('#question');
-        currentQ = questions[i].title; 
+        currentQ = questions[i].title;
+        currentChoices = questions[i].choices; 
         changeQuestion.innerText = currentQ;
-        return;
-    }
-    for(var i = 0; i < questions.length; i++) {
-        var changeOptions = document.querySelector('#choices');
-        currentOptions = questions[i].choices;
-        changeOptions.innerText = currentOptions;
-        return;
-    }
+
+        currentChoices.forEach((item)=>{
+            let newLi = document.createElement('li');
+            newLi.innerText = item;
+            wrapperEl.append(newLi);
+        })
+
+ 
+
+       return;
+    }  
+
+    console.log(currentOptions);
 }
 
 startQuiz();
