@@ -37,14 +37,10 @@ header {
 
 }
 
-header a {
+header p {
     text-decoration: none;
     font-weight: bold;
-    color: rgb(236, 209, 35);
-}
-
-header #timer {
-    justify-self: flex-end;
+    color: rgb(255, 90, 236);
 }
 
 main.start-page {
@@ -59,21 +55,20 @@ main.startpage h1,h2 {
     padding: 25px;
 }
 
-button#start {
+button#start, button#leaderboard {
     width: fit-content;
     font-size: 14px;
     margin: auto;
     padding: 5px 10px;
-    margin-top: 5%;
+    margin-top: 15px;
     background: white;
     color: black;
-    border-radius: 24px;
+    border-radius: 15px;
     transition: .222s;
 }
 
-#start:hover {
-    background: #9B344E;
-    color: #e9e2e4;
+.btn-hover:hover {
+    background: #b0d204;
     box-shadow: 1px 1px 80px 12px #d5f438;
     cursor: pointer;
 }
