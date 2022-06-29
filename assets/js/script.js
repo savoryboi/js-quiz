@@ -49,20 +49,17 @@ var questions = [
 // var activeTime = (`${seconds}:${milliseconds});
 
 
-// var totalTime = document.getElementById("seconds");
+var totalTime = document.getElementById("seconds");
 
 
 function startQuiz() {
     console.log('test');
     for( var i = 0; i < questions.length; i++) {
         var questionProg = questions[i].title;
-        console.log(questionProg);
+        document.getElementById('title').innerHTML = questionProg;
     }
-    var questionLabel = document.getElementById('title');
 
 }
-
-
 
 
 document.getElementById("start").addEventListener("click", startQuiz)

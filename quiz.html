@@ -5,8 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz Page</title>
+    <link rel="stylesheet" href="./assets/styles/quiz.css">
 </head>
 <body>
+    <header class="timer">
+        <span id="seconds" id="timer">time remaining: </span>
+    </header>
+
+    <div class="wrapper flex-column center">
+        <h2 id="question" class="center">question goes here</h2>
+        <div class="choice-wrapper center">
+            <ul id="choices center">
+                <li id="choice1">A</li>
+                <li id="choice2">B</li>
+                <li id="choice3">C</li>
+                <li id="choice4">D</li>
+            </ul>
+        </div>
+
+    </div>
     
     <script src="js/script.js"></script>
 </body>
