@@ -44,18 +44,19 @@ var questions = [
 ];
 
 // var score = 0;
-// var questionIndex = 0;
-
 // let seconds = 75;
+// let milliseconds = 00;
+// var activeTime = (`${seconds}:${milliseconds});
+
 
 // var totalTime = document.getElementById("seconds");
 
 
 function startQuiz() {
     console.log('test');
-    for(questionIndex = 0; questionIndex < questions.length; questionIndex++) {
-        var currentQ = 
-        document.getElementById('title').innerText = questions[i].title;
+    for( var i = 0; i < questions.length; i++) {
+        var questionProg = questions[i].title;
+        console.log(questionProg);
     }
     var questionLabel = document.getElementById('title');
 
