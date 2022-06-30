@@ -44,39 +44,59 @@ var questions = [
     }
 ];
 
-// var score = 0;
-// let seconds = 75;
-// let milliseconds = 00;
-// var activeTime = (`${seconds}:${milliseconds});
 
 
 
-var totalTime = document.getElementById("seconds");
-var startButton = document.getElementById("start");
 
-function startQuiz(){
-    var wrapperEl = document.querySelector('.answer-list');
+var timerEl = document.querySelector("#timer");
+var getLiEls = document.querySelectorAll('li');
 
 
-    for(var i = 0; i < questions.length; i++) {
-        var changeQuestion = document.querySelector('#question');
-        currentQ = questions[i].title;
-        currentChoices = questions[i].choices; 
-        changeQuestion.innerText = currentQ;
 
-        // create new li for each value in current indexed questions.choices
-        currentChoices.forEach((item)=>{
-            let newLi = document.createElement('li');
-            newLi.innerText = item;
-            wrapperEl.append(newLi);
-        })
+var timeLeft = 76;
+var timeInterval = setInterval(function() {
+    timeLeft--;
+    timerEl.innerText = `time left: ${timeLeft}s`
 
- 
+    if(timeLeft === 0){
+        clearInterval();
+    }
+    }, 1000);
 
-       return;
-    }  
-
-    console.log(currentOptions);
+function evaluate(){
+    console.log('working')
+   
 }
 
-startQuiz();
+var wrapperEl = document.querySelector('.answer-list');
+var allAnswers = document.querySelectorAll('li');
+    
+
+let i = 0;
+
+function currentPage(){
+    var changeQuestion = document.querySelector('#question');
+    currentQ = questions[i].title;
+    currentChoices = questions[i].choices; 
+    changeQuestion.innerText = currentQ;
+
+// empties wrapper html
+    wrapperEl.innerHTML = '';
+
+ // create new li for each value in current indexed questions.choices
+    currentChoices.forEach((item)=>{
+    let newLi = document.createElement('li');
+    newLi.innerText = item;
+    // innerHTML instead of append, 
+    wrapperEl.append(newLi);
+    })
+
+    
+
+    i++
+    return;
+}
+
+    // checkAnswer();
+
+    currentPage();
