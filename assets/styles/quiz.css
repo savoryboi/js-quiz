@@ -51,14 +51,14 @@ header #timer {
 }
 
 #question {
-    margin-top: 7%;
+    margin-top: 3%;
     padding: 5%;
     border: 2px solid turquoise;
     border-radius: 5px;
 }
 
 ul { 
-    padding-top: 100px;
+    padding-top: 80px;
 }
 
 ul li {

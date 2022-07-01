@@ -11,29 +11,27 @@
 
 // final Q screen w/ log for initals and score... 
 
-
-
 // store list of questions using objects in an array 
 var questions = [
     {
-        title: "which of the following is NOT a value type?",
+        title: "Q1/5: which of the following is NOT a value type?",
         choices: ['string', 'boolean', 'undefined', 'variable'], 
     },
     {
-        title: 'a functioned is called using which of the following:',
+        title: 'Q2/5: a functioned is called using which of the following:',
         choices: ['()', ';', '{}', '[]'], 
 
     },
     {
-        title: 'within which html element do you link your javascript file?', 
+        title: 'Q3/5: within which html element do you link your javascript file?', 
         choices: ['header', 'body', 'html', 'head'], 
     },
     {
-        title: 'true or false: developers can use "console.log" in their JavaScipt to make text appear on a webpage', 
+        title: 'Q4/5: true or false: developers can use "console.log" in their JavaScipt to make text appear on a webpage', 
         choices: ['true', 'false'], 
     },
     {
-        title: 'the following symbols ($$, ||, ===, <, >) are known as...',
+        title: 'Q5/5 the following symbols ($$, ||, ===, <, >) are known as...',
         choices: ['computer operators', 'methods', 'comparative operators', 'computer science'], 
     }
 ];
@@ -45,6 +43,8 @@ var scoreEl = document.querySelector('#score');
 var timeLeft = 60;
 let score = 0;
 var wrapperEl = document.querySelector('.answer-list');
+var finalScoreEl = document.querySelector('#final-score');
+var finalScore = evaluate();
 
 
 // assign correct answers to variable to be compared to later
@@ -64,7 +64,7 @@ var timeInterval = setInterval(function() {
     timeLeft--;
     timerEl.innerText = `time left: ${timeLeft}s`;
     
-    if(timeLeft === 0){
+    if(timeLeft === 0 || timeLeft < 0){
         clearInterval(timeInterval);
         alert('are u dumb? lol guess so');
         window.location = 'index.html'
@@ -94,7 +94,6 @@ function currentPage(){
     evaluate();
 }
 
-
 function evaluate() {
     document.querySelectorAll('li').forEach((item)=>{
         const answerEls = document.querySelector('li');
@@ -114,10 +113,15 @@ function evaluate() {
             score++;
             scoreEl.innerText = `${score}`;
             i++;
+            // check for correct answer on final question to send us to final screen
+            if(userAnswer === answer5){
+                window.location = 'scores.html'
+                return score;
+            }
             currentPage();
-        } else if(questionEl.textContent === lastQuestion){
-            window.location = 'scores.html'
-            return;
+        } else if(questionEl.textContent == lastQuestion) {
+            window.location = 'scores.html';
+            return timeLeft;
         } else {
             // dock time
             timeLeft -= 10;
@@ -129,9 +133,13 @@ function evaluate() {
             }
         })
     })
-
+    return score;
 }
 
-    // checkAnswer();
+if(window.location == 'scores.html'){
+    
+}
+
+console.log(evaluate())
 
 currentPage();
