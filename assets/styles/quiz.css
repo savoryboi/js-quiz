@@ -46,6 +46,10 @@ header #timer {
     justify-self: flex-end;
 }
 
+#score {
+    font-size: 40px;
+}
+
 #question {
     margin-top: 7%;
     padding: 5%;
@@ -65,7 +69,7 @@ ul li {
     border-bottom: 2px solid yellowgreen;
     border-radius: 50px;
     transition: .222s;
-    
+    text-align: center;   
 }
 
 ul li:hover {
