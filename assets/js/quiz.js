@@ -121,6 +121,7 @@ function evaluate() {
             timeLeft -= 10;
             console.log('wrong!');
             score--;
+            scoreEl.innerText = `${score}`;
             i++;
             currentPage();
             }
