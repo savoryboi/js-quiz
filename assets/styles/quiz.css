@@ -21,6 +21,9 @@ body, html {
     flex-direction: column;
 }
 
+.black {
+    color: black;
+}
 .center {
     margin: auto;
     justify-content: center;

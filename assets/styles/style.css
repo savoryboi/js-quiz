@@ -69,6 +69,10 @@ button#start, button#leaderboard, button#submit {
     transition: .222s;
 }
 
+form input {
+    color: black;
+}
+
 .btn-hover:hover {
     background-color: #b0d204;
     box-shadow: 1px 1px 60px 12px #d5f438;

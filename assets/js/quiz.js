@@ -2,16 +2,11 @@
 // Pseudo code
 // timer starts at full count (75sec) until startbutton is clicked
 // once startbutton clicked, text in html elements cycle through questions array
-//          assign titles to #title in html
-//          styled ul for choices
-//          when choice clicked IF correct... show 'correct!', nextQ
-//          ELSE reduce timer and show 'wrong!!', nextQ
-//      final Q stops the loop (use i < questions.length in for-loop)
-// score = time (in sec) remaining after completing
 
 // final Q screen w/ log for initals and score... 
 
 // store list of questions using objects in an array 
+
 var questions = [
     {
         title: "Q1/5: which of the following is NOT a value type?",
@@ -36,6 +31,8 @@ var questions = [
     }
 ];
 
+//devlare variables
+
 var timerEl = document.querySelector("#timer");
 var questionEl = document.querySelector('#question')
 var liEls = document.querySelectorAll('li');
@@ -53,10 +50,7 @@ var answer2 = questions[1].choices[0];
 var answer3 = questions[2].choices[1];
 var answer4 = questions[3].choices[1];
 var answer5 = questions[4].choices[2];
-
 var lastQuestion = questions[4].title;
-
-console.log(lastQuestion);
 
 
 // timer setup
@@ -116,30 +110,23 @@ function evaluate() {
             // check for correct answer on final question to send us to final screen
             if(userAnswer === answer5){
                 window.location = 'scores.html'
-                return score;
+                score = evaluate();
             }
             currentPage();
         } else if(questionEl.textContent == lastQuestion) {
             window.location = 'scores.html';
-            return timeLeft;
+            score = evaluate();
         } else {
             // dock time
             timeLeft -= 10;
-            console.log('wrong!')
+            console.log('wrong!');
             score--;
-            scoreEl.innerText = `${score}`;
             i++;
             currentPage();
             }
         })
     })
-    return score;
+    return score;  
 }
-
-if(window.location == 'scores.html'){
-    
-}
-
-console.log(evaluate())
 
 currentPage();
