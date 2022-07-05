@@ -52,7 +52,7 @@ var answer3 = questions[2].choices[1];
 var answer4 = questions[3].choices[1];
 var answer5 = questions[4].choices[2];
 var lastQuestion = questions[4].title;
-
+var stopTime = clearInterval(timeInterval);
 
 // timer setup
 var timeInterval = setInterval(function() {
@@ -119,13 +119,14 @@ function evaluate() {
                 
                 score = evaluate();
                 finishQuiz();
-                console.log(i);
+                clearInterval(timeInterval);
 
             }
             currentPage();
         } else if(questionEl.textContent == lastQuestion) {
      
             score = evaluate();
+            clearInterval(timeInterval);
             finishQuiz();
         } else {
             // dock time
@@ -158,6 +159,7 @@ $("#submitBtn").on('click', function(event){
     var highScores = JSON.parse(localStorage.getItem('initial')) || [];
     highScores.push({storageInitials, score});
     localStorage.setItem('initial', JSON.stringify(highScores));
+
 })
 
 })(jQuery);
