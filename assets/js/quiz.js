@@ -148,7 +148,6 @@ function finishQuiz(){
     $("#wrapper").addClass("d-none");
     $('#score-form').removeClass("d-none");
     $('#score-form').addClass("d-block");   
-    console.log('fire');
 
 }
 currentPage();
@@ -157,7 +156,7 @@ $("#submitBtn").on('click', function(event){
     event.preventDefault();
     var storageInitials = $("#initials").val();
     var highScores = JSON.parse(localStorage.getItem('initial')) || [];
-    highScores.push({storageInitials, finalScore});
+    highScores.push({storageInitials, score});
     localStorage.setItem('initial', JSON.stringify(highScores));
 })
 

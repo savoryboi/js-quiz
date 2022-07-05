@@ -30,6 +30,14 @@ body, html {
     align-items: center;
 }
 
+.d-none {
+    display: none;
+}
+
+.d-block {
+    display: block;
+}
+
 /* CUSTOM STYLES */
 header {
     display: flex;
@@ -78,14 +86,21 @@ ul li:hover {
     background: yellowgreen;
 }
 
-form {
-    display: none;
+input {
+    color: black;
 }
 
-.d-none {
-    display: none;
+button#submitBtn {
+    color: white;
+    padding: 10px 25px;
+    margin: 30px auto;
+    background: black;
+    border: none;
+    outline: none;
+    border-bottom: yellowgreen 3px solid;
+    border-radius: 25px;
+    transition: .222s;
 }
-
-.d-block {
-    display: block;
+#submitBtn:hover {
+    background-color: yellowgreen;
 }
