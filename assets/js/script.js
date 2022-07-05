@@ -9,6 +9,3 @@ function newPage(){
 
 
 startButton.addEventListener('click', newPage);
-leaderboardBtn.addEventListener('click', function(){
-    window.location = 'scores.html'
-})

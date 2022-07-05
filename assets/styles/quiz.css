@@ -28,7 +28,6 @@ body, html {
     margin: auto;
     justify-content: center;
     align-items: center;
-
 }
 
 /* CUSTOM STYLES */
@@ -77,4 +76,16 @@ ul li {
 
 ul li:hover {
     background: yellowgreen;
+}
+
+form {
+    display: none;
+}
+
+.d-none {
+    display: none;
+}
+
+.d-block {
+    display: block;
 }

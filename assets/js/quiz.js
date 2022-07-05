@@ -1,4 +1,4 @@
-
+(function($){ 
 // Pseudo code
 // timer starts at full count (75sec) until startbutton is clicked
 // once startbutton clicked, text in html elements cycle through questions array
@@ -42,6 +42,7 @@ let score = 0;
 var wrapperEl = document.querySelector('.answer-list');
 var finalScoreEl = document.querySelector('#final-score');
 var finalScore = evaluate();
+const answerEls = document.querySelector('li');
 
 
 // assign correct answers to variable to be compared to later
@@ -60,8 +61,9 @@ var timeInterval = setInterval(function() {
     
     if(timeLeft === 0 || timeLeft < 0){
         clearInterval(timeInterval);
-        alert('are u dumb? lol guess so');
-        window.location = 'index.html'
+        // alert('are u dumb? lol guess so');
+        // window.location = 'index.html'
+        finishQuiz();
     }
     }, 1000);
 
@@ -71,9 +73,13 @@ let i = 0;
 
 function currentPage(){
     var changeQuestion = document.querySelector('#question');
-    var currentQ = questions[i].title;
-    var currentChoices = questions[i].choices;    
+    
+    if(i < questions.length){
+        var currentQ = questions[i].title;
+        var currentChoices = questions[i].choices;  
+      
     changeQuestion.innerText = currentQ;
+    console.log('banana');
 
 // empties wrapper html
     wrapperEl.innerHTML = '';
@@ -84,14 +90,13 @@ function currentPage(){
         newLi.innerText = item;
         wrapperEl.append(newLi);
     })
-
+    }
     evaluate();
 }
 
 function evaluate() {
     document.querySelectorAll('li').forEach((item)=>{
-        const answerEls = document.querySelector('li');
-        item.className += 'li-choice';
+
         item.addEventListener('click', function(){
 
         var userAnswer = this.innerText;
@@ -108,14 +113,20 @@ function evaluate() {
             scoreEl.innerText = `${score}`;
             i++;
             // check for correct answer on final question to send us to final screen
-            if(userAnswer === answer5){
-                window.location = 'scores.html'
+            console.log(i);
+
+            if(i >= questions.length){
+                
                 score = evaluate();
+                finishQuiz();
+                console.log(i);
+
             }
             currentPage();
         } else if(questionEl.textContent == lastQuestion) {
-            window.location = 'scores.html';
+     
             score = evaluate();
+            finishQuiz();
         } else {
             // dock time
             timeLeft -= 10;
@@ -130,4 +141,24 @@ function evaluate() {
     return score;  
 }
 
+function finishQuiz(){
+    var finalScoreEl = document.querySelector('#score-form');
+    scoreEl.innerText = `${score}`;
+    questionEl.innerText = 'You have completed the quiz! Type your initials to save your score to the leaderboard.'
+    $("#wrapper").addClass("d-none");
+    $('#score-form').removeClass("d-none");
+    $('#score-form').addClass("d-block");   
+    console.log('fire');
+
+}
 currentPage();
+
+$("#submitBtn").on('click', function(event){
+    event.preventDefault();
+    var storageInitials = $("#initials").val();
+    var highScores = JSON.parse(localStorage.getItem('initial')) || [];
+    highScores.push({storageInitials, finalScore});
+    localStorage.setItem('initial', JSON.stringify(highScores));
+})
+
+})(jQuery);
