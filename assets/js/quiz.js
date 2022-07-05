@@ -151,7 +151,6 @@ function finishQuiz(){
     $('#score-form').addClass("d-block");   
 
 }
-currentPage();
 
 $("#submitBtn").on('click', function(event){
     event.preventDefault();
@@ -159,7 +158,9 @@ $("#submitBtn").on('click', function(event){
     var highScores = JSON.parse(localStorage.getItem('initial')) || [];
     highScores.push({storageInitials, score});
     localStorage.setItem('initial', JSON.stringify(highScores));
-
+    $('#leaderboard').removeClass('d-none');
 })
+
+currentPage();
 
 })(jQuery);
