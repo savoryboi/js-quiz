@@ -43,6 +43,7 @@ var wrapperEl = document.querySelector('.answer-list');
 var finalScoreEl = document.querySelector('#final-score');
 var finalScore = evaluate();
 const answerEls = document.querySelector('li');
+var leaderboardEl = $('#leaderboard');
 
 
 // assign correct answers to variable to be compared to later
@@ -154,13 +155,38 @@ function finishQuiz(){
 
 $("#submitBtn").on('click', function(event){
     event.preventDefault();
-    var storageInitials = $("#initials").val();
-    var highScores = JSON.parse(localStorage.getItem('initial')) || [];
-    highScores.push({storageInitials, score});
-    localStorage.setItem('initial', JSON.stringify(highScores));
+    var initials = $('#initials').val();
+    var playerData = `${initials}: ${score}`;
+    
+    localStorage.setItem('scores', playerData);
+    var topScores = localStorage.getItem('scores')
+
+    var leaderLi = (leaderboardEl).append('li');
+    $(leaderLi).text(topScores);
+    
     $('#leaderboard').removeClass('d-none');
+    
+    
+    console.log(playerData);
+
+    
+    
+ 
+
 })
 
+
+    // var highScores = JSON.parse(localStorage.getItem('initial')) || [];
+    // highScores.push({storageInitials, finalScore});
+    // localStorage.setItem('initial', JSON.stringify(highScores));
+
+    // var leaderboardEl = document.querySelector("#leaderboard");
+    // var leaderboardLis = document.createElement('li');
+    // leaderboardEl.append(leaderboardLis);
+
+
+
 currentPage();
+
 
 })(jQuery);
